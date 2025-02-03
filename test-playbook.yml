@@ -1,0 +1,6 @@
+- name: Test Ansible Playbook
+  hosts: local
+  tasks:
+    - name: Print a message
+      ansible.builtin.debug:
+        msg: "Ansible is working on localhost!"
