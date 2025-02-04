@@ -1,0 +1,19 @@
+- name: Test Playbook
+  hosts: servers
+  become: yes
+  tasks:
+    - name: Print a message
+      ansible.builtin.debug:
+        msg: "Ansible is working on {{ inventory_hostname }}!"
+
+    - name: Ensure Apache is installed (Ubuntu)
+      ansible.builtin.apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Ensure Apache is installed (CentOS/RHEL)
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"
