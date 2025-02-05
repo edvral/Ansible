@@ -1,0 +1,6 @@
+- name: Test connection to MySQL Cluster
+  hosts: mysql_cluster
+  gather_facts: no
+  tasks:
+    - name: Ping all servers
+      ansible.builtin.ping:
