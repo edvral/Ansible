@@ -1,0 +1,21 @@
+- name: Update all servers
+  hosts: mysql_cluster
+  become: yes  # Run tasks as sudo
+  tasks:
+    - name: Update package lists
+      apt:
+        update_cache: yes
+
+    - name: Upgrade all packages
+      apt:
+        upgrade: dist
+
+    - name: Install basic utilities
+      apt:
+        name:
+          - vim
+          - curl
+          - wget
+          - net-tools
+          - htop
+        state: present
