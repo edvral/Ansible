@@ -1,6 +1,6 @@
 - name: Update all servers
   hosts: mysql_cluster
-  become: yes  # Run tasks as sudo
+  become: yes
   tasks:
     - name: Update package lists
       apt:
